@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator page</title>
+</head>
+<body>
+	<form method="post" action="calculator">
+
+		<input type="number" name="f_num">
+		<br>
+
+		<select>
+	    <option value="" disabled="disabled" selected="selected">Please select an operation</option>
+	    <option value="+" name = "+"></option>
+	    <option value="-" name = "-"></option>
+	    <option value="*" name = "*"></option>
+	    <option value="/" name = "/"></option>
+
+		</select>
+
+		<br>
+		<input type="number" name="second_num"> 
+		<br>
+	    <input type="submit" value="Calculate">
+
+
+	<input type="hidden" name="f_name" value = "<%= f_name %>">
+	<input type="hidden" name="l_name" value = "<%= l_name %>">
+	<input type="hidden" name="password" value = "<%= password %>">
+	</form>
+
+</body>
+</html>

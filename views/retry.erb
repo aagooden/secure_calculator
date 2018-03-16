@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>retry</title>
+</head>
+<body>
+<h3>Please enter a valid username, and password for:</h3>
+
+
+<h4><%= f_name %> <%= l_name %></h4>
+
+<form method="post" action="login">
+	    <input type="text" name="username" placeholder="Username">
+	    <input type="password" name="password" placeholder="Password">
+	    <input type="submit" name="submit">
+
+	  	<input type="hidden" name="f_name" value = "<%= f_name %>">
+		<input type="hidden" name="l_name" value = "<%= l_name %>">
+	</form>
+</body>
+</html>
