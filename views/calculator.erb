@@ -5,11 +5,9 @@
 </head>
 <body>
 
-	<p>Congratulations <%= f_name %>, you have a <%= message %></p>
-	<br>
-	<br>
-	<h1>Welcome to the Secure Calculator <%= f_name %></h1>
-	<h3>For those times when you just have to hide your calculations!</h3>
+	<h1><%= message %></h1>
+	<h1>Welcome to the Secure Calculator, <%= f_name %>!</h1>
+	<h3>For those times when you just have to hide your calculations...</h3>
 	<br>
 	<form method="post" action="show">
 
@@ -31,6 +29,7 @@
 
 		<input type="hidden" name="f_name" value = "<%= f_name %>">
 		<input type="hidden" name="l_name" value = "<%= l_name %>">
+		<input type="hidden" name="message" value = "<%= message %>">
 	</form>
 
 </body>

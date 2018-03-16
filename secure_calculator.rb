@@ -27,8 +27,8 @@ post "/login" do
 	password = params[:password]
 
 	if check_credentials(username, password)
-		message = "Successful Login"
-		redirect "/calculator?f_name=" + f_name + "&l_name=" + l_name +"&message=" + message
+		message = "You have a successful login."
+		redirect "/calculator?f_name=" + f_name + "&l_name=" + l_name + "&message=" + message
 	else
 		redirect "/retry?f_name=" + f_name + "&l_name=" + l_name
 	end
@@ -50,7 +50,7 @@ get "/calculator" do
 	l_name = params[:l_name]
 	username = params[:username]
 	password = params[:password]
-	message = "Nice job dumbas!!"
+	message = params[:message]
 	erb :calculator, locals: {message: message, f_name: f_name, l_name: l_name}
 end
 
@@ -63,6 +63,7 @@ post "/show" do
 	num1 = params[:num1].to_f
 	num2 = params[:num2].to_f
 	operation = params[:operation]
+	message = "Let's do it again..."
 
 
 	if num2.to_f == 0
@@ -77,7 +78,7 @@ post "/show" do
 		result = num1.to_f / num2.to_f
 	end
 	
-	erb :show, locals: { f_name: f_name, l_name: l_name, num1: num1, num2: num2, operation: operation, result: result}
+	erb :show, locals: { f_name: f_name, l_name: l_name, num1: num1, num2: num2, operation: operation, result: result, message: message}
 end
 
 
