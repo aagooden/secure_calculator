@@ -1,5 +1,4 @@
 require "sinatra"
-require "sinatra/reloader"
 
 def check_credentials(username, password)
 
