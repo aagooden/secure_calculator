@@ -4,29 +4,30 @@
 	<title>calculator page</title>
 </head>
 <body>
-	<form method="post" action="calculator">
 
-		<input type="number" name="f_num">
+	<h1>Welcome to the Secure Calculator <%= f_name %></h1>
+	<h3>For those times when you just have to hide your calculations!</h3>
+	<br>
+	<form method="post" action="show">
+
+		<input type="text" name="num1" placeholder="First Number" autofocus>
+		<br>
 		<br>
 
-		<select>
-	    <option value="" disabled="disabled" selected="selected">Please select an operation</option>
-	    <option value="+" name = "+"></option>
-	    <option value="-" name = "-"></option>
-	    <option value="*" name = "*"></option>
-	    <option value="/" name = "/"></option>
-
-		</select>
-
+		<input type="radio" name="operation" value="+"> Add(+)  
+  		<input type="radio" name="operation" value="-">   Subtract(-)  
+  		<input type="radio" name="operation" value="*">   Multiply(*)  
+  		<input type="radio" name="operation" value="/">   Divide(/)  
 		<br>
-		<input type="number" name="second_num"> 
+		<br>
+		<input type="text" name="num2" placeholder="Second Number" autofocus> 
+		<br>
 		<br>
 	    <input type="submit" value="Calculate">
 
 
-	<input type="hidden" name="f_name" value = "<%= f_name %>">
-	<input type="hidden" name="l_name" value = "<%= l_name %>">
-	<input type="hidden" name="password" value = "<%= password %>">
+		<input type="hidden" name="f_name" value = "<%= f_name %>">
+		<input type="hidden" name="l_name" value = "<%= l_name %>">
 	</form>
 
 </body>

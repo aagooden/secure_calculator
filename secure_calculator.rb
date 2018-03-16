@@ -20,8 +20,6 @@ get "/" do
 end
 
 
-
-
 post "/login" do
 
 	f_name = params[:f_name]
@@ -30,7 +28,7 @@ post "/login" do
 	password = params[:password]
 
 	if check_credentials(username, password)
-		redirect "/show?f_name=" + f_name + "&l_name=" + l_name + "&username=" + username + "&password=" + password
+		redirect "/calculator?f_name=" + f_name + "&l_name=" + l_name + "&username=" + username + "&password=" + password
 	else
 		redirect "/retry?f_name=" + f_name + "&l_name=" + l_name
 	end
@@ -46,11 +44,51 @@ get "/retry" do
 end
 
 
-get "/show" do
+get "/calculator" do
 	f_name = params[:f_name]
 	l_name = params[:l_name]
 	username = params[:username]
 	password = params[:password]
 	message = "Nice job dumbas!!"
-	erb :show, locals: {message: message, f_name: f_name, l_name: l_name}
+	erb :calculator, locals: {message: message, f_name: f_name, l_name: l_name}
 end
+
+
+post "/show" do
+	f_name = params[:f_name]
+	l_name = params[:l_name]
+	username = params[:username]
+	password = params[:password]
+	num1 = params[:num1].to_f
+	num2 = params[:num2].to_f
+	operation = params[:operation]
+
+
+	if num2.to_f == 0
+		result = "Zero Division Error"
+	elsif operation == "+"
+		result = num1.to_f +  num2.to_f
+	elsif operation == "-"
+		result = num1.to_f - num2.to_f
+	elsif operation == "*"
+		result = num1.to_f * num2.to_f
+	elsif operation == "/"
+		result = num1.to_f / num2.to_f
+	end
+	
+	erb :show, locals: { f_name: f_name, l_name: l_name, num1: num1, num2: num2, operation: operation, result: result}
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

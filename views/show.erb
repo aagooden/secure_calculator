@@ -4,8 +4,17 @@
 	<title>show</title>
 </head>
 <body>
-<h1><%= message %></h1>
-<h1><%=f_name%></h1>
+	<h1>Here is your calculation</h1>
+	<h2><%=num1%> <%=operation%> <%=num2%> = <%=result%></h2>
+	<h2></h2>
+	<h2></h2>
+	<h2></h2>
+
+	<form method="get" action="calculator">
+		<input type="submit" name="submit" value="Try Again?">
+		<input type="hidden" name="f_name" value = "<%= f_name %>">
+		<input type="hidden" name="l_name" value = "<%= l_name %>">
+	</form>
 
 </body>
 </html>
