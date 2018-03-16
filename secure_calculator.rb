@@ -27,7 +27,8 @@ post "/login" do
 	password = params[:password]
 
 	if check_credentials(username, password)
-		redirect "/calculator?f_name=" + f_name + "&l_name=" + l_name + "&username=" + username + "&password=" + password
+		message = "Successful Login"
+		redirect "/calculator?f_name=" + f_name + "&l_name=" + l_name +"&message=" + message
 	else
 		redirect "/retry?f_name=" + f_name + "&l_name=" + l_name
 	end
@@ -38,7 +39,8 @@ end
 get "/retry" do
 	f_name = params[:f_name]
 	l_name = params[:l_name]
-	erb :retry, locals: {f_name: f_name, l_name: l_name}
+	message = params[:message]
+	erb :retry, locals: {f_name: f_name, l_name: l_name, message: message}
 
 end
 
