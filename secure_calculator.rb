@@ -66,7 +66,7 @@ post "/show" do
 	message = "Let's do it again..."
 
 
-	if num2.to_f == 0
+	if num2.to_f == 0 && operation == "/"
 		result = "Zero Division Error"
 	elsif operation == "+"
 		result = num1.to_f +  num2.to_f
